@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from datetime import datetime
+
 
 
 # -------------------------------
@@ -13,8 +13,43 @@ class Person(ABC):
         self._age = age
 
     @abstractmethod
-    def get_role(self):
+    def get_role(self) -> str:
         pass
 
     def __str__(self):
         return f"{self._name} ({self.get_role()})"
+
+
+# -------------------------------
+# 2. INHERITANCE
+# -------------------------------
+class Staff(Person):
+    """Base class for hospital staff."""
+
+    def __init__(self, name: str, age: int, staff_id: str):
+        super().__init__(name, age)
+        self._staff_id = staff_id
+
+    @abstractmethod
+    def perform_duty(self) -> str:
+        pass
+
+
+class Doctor(Staff):
+    """Doctor who diagnoses patients."""
+
+    def get_role(self):
+        return "Doctor"
+
+    def perform_duty(self):
+        return f"👨‍⚕️ Dr. {self._name} is diagnosing patients."
+
+
+class Nurse(Staff):
+    """Nurse who assists doctors and cares for patients."""
+
+    def get_role(self):
+        return "Nurse"
+
+    def perform_duty(self):
+        return f"👩‍⚕️ Nurse {self._name} is caring for patients."
