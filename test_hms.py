@@ -16,3 +16,7 @@ class TestHospitalManagementSystem(unittest.TestCase):
         self.assertEqual(self.nurse.get_role(), "Nurse")
         self.assertEqual(str(self.nurse), "Bob Johnson (Nurse)")
         self.assertEqual(self.nurse.perform_duty(), "👩‍⚕️ Nurse Bob Johnson is caring for patients.")
+
+
+if __name__ == "__main__":
+    unittest.main()
