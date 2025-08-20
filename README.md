@@ -16,10 +16,7 @@ A simple project built in Python to demonstrate mastery of the **4 pillars of Ob
 - Patients have **private medical records** (Encapsulation).
 - Abstract base class `Person` enforces common behavior (Abstraction).
 - Doctors and Nurses **perform duties differently** (Polymorphism).
-- Uses **getter methods** (like `get_name()`) to access attributes instead of exposing them directly — following **OOP best practices**.
 
 ---
 
-## ▶️ How to Run
-```bash
-python hospital_system.py
+
