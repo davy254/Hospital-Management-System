@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from datetime import datetime
 
 
 
@@ -53,3 +54,35 @@ class Nurse(Staff):
 
     def perform_duty(self):
         return f"👩‍⚕️ Nurse {self._name} is caring for patients."
+
+# -------------------------------
+# 3. ENCAPSULATION
+# -------------------------------
+class Patient(Person):
+    """Patient who receives care in the hospital."""
+    def __init__(self, name:str, age:int, patient_id:str):
+        super().__init__(name, age)
+        self.__patient_id = patient_id
+        self.__medical_history = []
+
+    def get_role(self):
+        return "Patient"
+
+    def add_record(self, record: str):
+        """Add a medical record to the patient's history."""
+        self.__medical_history.append(record)
+        return f"Record added for {self._name}:{record}"
+
+    def view_records(self):
+        return self.__medical_history
+    
+
+# -------------------------------
+# 4. POLYMORPHISM
+# -------------------------------
+def hospital_round(staff_list):
+    """Polymorphism: Each staff performs their duty differently."""
+    for staff in staff_list:
+        print(staff.perform_duty())
+
+    
